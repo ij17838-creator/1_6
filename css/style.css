@@ -1,0 +1,59 @@
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #fffbeb; /* 자극이 없고 눈이 편안한 단색 파스텔 톤 */
+}
+
+.font-gaegu {
+    font-family: 'Gaegu', cursive;
+}
+
+/* Large Touch-friendly Focus outlines for Tablets & Laptops */
+button:focus, input:focus, select:focus {
+    outline: 4px solid #f59e0b !important;
+    outline-offset: 3px;
+}
+
+@keyframes pulse-gentle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.animate-pulse-gentle {
+    animation: pulse-gentle 2.5s ease-in-out infinite;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 12px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #fef3c7;
+    border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #f59e0b;
+    border-radius: 10px;
+}
+
+/* Stage 4 Toy Play Animations */
+@keyframes toy-bounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(6deg); }
+}
+@keyframes toy-slide {
+    0%, 100% { transform: translateX(-24px); }
+    50% { transform: translateX(24px); }
+}
+@keyframes friend-play {
+    0%, 100% { transform: scale(1) rotate(-3deg); }
+    50% { transform: scale(1.06) rotate(3deg); }
+}
+
+.animate-toy-bounce {
+    animation: toy-bounce 1.6s ease-in-out infinite;
+}
+.animate-toy-slide {
+    animation: toy-slide 2.4s ease-in-out infinite;
+}
+.animate-friend-play {
+    animation: friend-play 1.8s ease-in-out infinite;
+}

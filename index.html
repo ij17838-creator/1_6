@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>두근두근 1학년 학교생활 시뮬레이션</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Gaegu & Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
+    <!-- Tone.js for Sound Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen text-slate-800 flex flex-col justify-between selection:bg-amber-200">
+
+    <!-- Top Header Navigation (Includes universal Back Button) -->
+    <header class="w-full bg-amber-400 border-b-4 border-amber-500 px-4 sm:px-6 py-4 shadow-sm sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto flex items-center justify-between gap-2">
+
+            <!-- Left: Header Back Button & Logo -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Back Button (Shown on all non-login screens) -->
+                <button id="globalBackBtn" data-action="back" class="hidden bg-white hover:bg-amber-100 active:bg-amber-200 text-amber-950 border-3 border-amber-600 px-3 sm:px-4 py-2 rounded-2xl text-base sm:text-xl font-black transition flex items-center gap-2 shadow-sm min-h-[50px]">
+                    <i class="fa-solid fa-arrow-left text-amber-700"></i>
+                    <span>이전으로</span>
+                </button>
+
+                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-2xl flex items-center justify-center text-amber-600 font-black text-2xl shadow-sm border-2 border-amber-300 flex-shrink-0">
+                    🎒
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-3xl font-black font-gaegu text-amber-950 tracking-wide">
+                        햇살초등학교 1학년 하루
+                    </h1>
+                </div>
+            </div>
+
+            <!-- Right: Sound Toggle Button -->
+            <button id="bgmToggleBtn" data-action="toggleAudio" class="bg-white hover:bg-amber-50 active:bg-amber-100 text-amber-900 border-3 border-amber-500 px-3 sm:px-5 py-2.5 rounded-2xl text-sm sm:text-lg font-extrabold transition flex items-center gap-2 shadow-sm min-h-[50px]">
+                <i id="bgmIcon" class="fa-solid fa-volume-xmark text-red-500 text-lg sm:text-xl"></i>
+                <span id="bgmText" class="hidden sm:inline">소리 켜기</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content: 화면은 js/core/router.js가 scenario.js 데이터로 그립니다 -->
+    <main id="app" class="max-w-6xl w-full mx-auto p-4 sm:p-8 flex-grow flex flex-col justify-center gap-6"></main>
+
+    <!-- Simple Notice Modal -->
+    <div id="noticeModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white border-4 border-amber-400 p-6 sm:p-8 rounded-3xl max-w-md w-full shadow-2xl text-center space-y-4">
+            <div class="text-6xl" id="modalEmoji">🔔</div>
+            <h3 class="text-2xl sm:text-3xl font-black text-amber-950 font-gaegu" id="modalTitle">알림</h3>
+            <p class="text-lg font-bold text-slate-600" id="modalDesc"></p>
+            <button data-action="closeModal" class="w-full bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-950 font-black text-xl py-4 rounded-xl border-b-4 border-amber-600 shadow-md">
+                확인
+            </button>
+        </div>
+    </div>
+
+    <footer class="w-full text-center py-4 text-sm font-bold text-slate-500">
+        초등학교 1학년 학교생활 시뮬레이션 © EduGame
+    </footer>
+
+    <!--
+        일반 <script>로 순서대로 불러옵니다 (파일을 더블클릭해서 열어도 동작).
+        순서: 데이터 → 핵심 → 기능 → 화면 → 시작점
+    -->
+    <script src="js/data/scenario.js"></script>
+    <script src="js/core/state.js"></script>
+    <script src="js/core/storage.js"></script>
+    <script src="js/features/audio.js"></script>
+    <script src="js/ui/modal.js"></script>
+    <script src="js/ui/templates.js"></script>
+    <script src="js/ui/login.js"></script>
+    <script src="js/features/tracing.js"></script>
+    <script src="js/core/router.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
