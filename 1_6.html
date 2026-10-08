@@ -164,17 +164,17 @@
                     </button>
                 </section>
 
-                <!-- Right: 10-Stage Roadmap (6 cols) -->
+                <!-- Right: 6-Stage Roadmap (6 cols) -->
                 <section class="md:col-span-6 bg-amber-50/80 border-4 border-amber-300 rounded-3xl p-6 shadow-lg flex flex-col justify-between">
                     <div>
                         <div class="border-b-4 border-amber-200 pb-3 mb-4 flex items-center justify-between">
                             <h3 class="font-gaegu text-2xl sm:text-3xl font-black text-amber-950 flex items-center gap-2">
                                 <i class="fa-solid fa-list-check text-amber-600"></i>
-                                오늘 할 일 (10단계)
+                                오늘 할 일 (6단계)
                             </h3>
                         </div>
 
-                        <!-- 10-Step Timeline -->
+                        <!-- 6-Step Timeline -->
                         <div class="space-y-3 max-h-[440px] overflow-y-auto pr-2 custom-scrollbar">
                             <div class="bg-amber-200 border-3 border-amber-400 rounded-2xl p-3.5 flex items-center gap-3.5 shadow-xs">
                                 <div class="w-10 h-10 rounded-xl bg-amber-500 text-white font-black flex items-center justify-center text-xl flex-shrink-0">1</div>
@@ -199,22 +199,6 @@
                             <div class="bg-white border-3 border-amber-200 rounded-2xl p-3.5 flex items-center gap-3.5 shadow-xs">
                                 <div class="w-10 h-10 rounded-xl bg-amber-300 text-amber-950 font-black flex items-center justify-center text-xl flex-shrink-0">6</div>
                                 <div class="text-lg font-black text-slate-800">🍱 6단계: 점심 시간</div>
-                            </div>
-                            <div class="bg-white border-3 border-amber-200 rounded-2xl p-3.5 flex items-center gap-3.5 shadow-xs">
-                                <div class="w-10 h-10 rounded-xl bg-amber-300 text-amber-950 font-black flex items-center justify-center text-xl flex-shrink-0">7</div>
-                                <div class="text-lg font-black text-slate-800">🎨 7단계: 미술 시간</div>
-                            </div>
-                            <div class="bg-white border-3 border-amber-200 rounded-2xl p-3.5 flex items-center gap-3.5 shadow-xs">
-                                <div class="w-10 h-10 rounded-xl bg-amber-300 text-amber-950 font-black flex items-center justify-center text-xl flex-shrink-0">8</div>
-                                <div class="text-lg font-black text-slate-800">🧹 8단계: 청소하기</div>
-                            </div>
-                            <div class="bg-white border-3 border-amber-200 rounded-2xl p-3.5 flex items-center gap-3.5 shadow-xs">
-                                <div class="w-10 h-10 rounded-xl bg-amber-300 text-amber-950 font-black flex items-center justify-center text-xl flex-shrink-0">9</div>
-                                <div class="text-lg font-black text-slate-800">📖 9단계: 가방 싸기</div>
-                            </div>
-                            <div class="bg-white border-3 border-amber-200 rounded-2xl p-3.5 flex items-center gap-3.5 shadow-xs">
-                                <div class="w-10 h-10 rounded-xl bg-amber-300 text-amber-950 font-black flex items-center justify-center text-xl flex-shrink-0">10</div>
-                                <div class="text-lg font-black text-slate-800">🏠 10단계: 집에 가기</div>
                             </div>
                         </div>
                     </div>
@@ -675,6 +659,333 @@
                 </div>
 
                 <!-- Next Stage Button -->
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button onclick="goToStage3()" class="w-full sm:w-auto bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-950 font-black text-2xl px-10 py-5 rounded-2xl border-b-6 border-amber-600 shadow-xl flex items-center justify-center gap-3 animate-pulse-gentle min-h-[68px]">
+                        <span>✏️ 3단계: 한글 공부로 가기</span>
+                        <i class="fa-solid fa-arrow-right text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- SCREEN 3-1: STAGE 3 - HANGUL TRACING                     -->
+        <!-- ======================================================== -->
+        <div id="screenStage3_Tracing" class="hidden space-y-6">
+
+            <!-- Stage Progress Indicator Bar -->
+            <div class="bg-amber-100 border-3 border-amber-300 rounded-2xl p-4 flex items-center justify-between shadow-xs">
+                <div class="flex items-center gap-3">
+                    <span id="wordStepBadge" class="bg-amber-500 text-white font-black text-xl px-4 py-1.5 rounded-xl">1번째 글자 (1/5)</span>
+                    <span class="text-xl sm:text-2xl font-black text-amber-950 font-gaegu">✏️ 3단계: 한글 공부 (글자 따라 쓰기)</span>
+                </div>
+                <div class="text-lg font-black text-amber-800 hidden sm:block">
+                    학생: <span class="displayStudentName text-amber-950 underline decoration-amber-400">김민수</span>
+                </div>
+            </div>
+
+            <!-- Question Banner -->
+            <div class="bg-white border-4 border-amber-300 rounded-3xl p-6 sm:p-8 shadow-lg text-center space-y-3">
+                <div class="inline-flex items-center gap-2 bg-amber-200 text-amber-950 text-lg font-black px-5 py-1.5 rounded-full">
+                    <span>💡 따라 써 볼까요?</span>
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-800 leading-snug">
+                    "<span id="currentWordTitle" class="text-amber-700">학교</span>"
+                </h2>
+                <p class="text-xl sm:text-2xl text-amber-900 font-extrabold">
+                    회색 글자 위를 손가락이나 마우스로 따라 써 보세요.
+                </p>
+            </div>
+
+            <!-- Tracing Canvas -->
+            <div class="bg-white border-4 border-amber-400 rounded-3xl shadow-inner overflow-hidden" style="height: 320px;">
+                <canvas id="hangulCanvas" class="w-full h-full block touch-none cursor-crosshair"></canvas>
+            </div>
+
+            <!-- Tools: Brush Colors, Listen, Erase -->
+            <div class="flex flex-wrap items-center justify-center gap-3">
+                <button onclick="setBrushColor('#f59e0b')" class="w-14 h-14 rounded-full bg-amber-500 border-4 border-white shadow-md" aria-label="노란색"></button>
+                <button onclick="setBrushColor('#3b82f6')" class="w-14 h-14 rounded-full bg-blue-500 border-4 border-white shadow-md" aria-label="파란색"></button>
+                <button onclick="setBrushColor('#10b981')" class="w-14 h-14 rounded-full bg-emerald-500 border-4 border-white shadow-md" aria-label="초록색"></button>
+                <button onclick="setBrushColor('#ef4444')" class="w-14 h-14 rounded-full bg-red-500 border-4 border-white shadow-md" aria-label="빨간색"></button>
+
+                <button onclick="speakCurrentWord()" class="bg-sky-100 hover:bg-sky-200 active:bg-sky-300 text-sky-950 border-4 border-sky-300 font-black text-xl px-5 py-3 rounded-2xl shadow-sm flex items-center gap-2 min-h-[56px]">
+                    <i class="fa-solid fa-volume-high"></i>
+                    <span>소리 듣기</span>
+                </button>
+                <button onclick="clearTracingCanvas()" class="bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-800 border-4 border-slate-300 font-black text-xl px-5 py-3 rounded-2xl shadow-sm flex items-center gap-2 min-h-[56px]">
+                    <i class="fa-solid fa-eraser"></i>
+                    <span>지우기</span>
+                </button>
+            </div>
+
+            <!-- Submit Button -->
+            <button onclick="submitTracingWord()" class="w-full bg-emerald-400 hover:bg-emerald-500 active:bg-emerald-600 text-emerald-950 font-black text-2xl sm:text-3xl py-5 rounded-2xl shadow-lg border-b-8 border-emerald-600 transition transform active:scale-95 flex items-center justify-center gap-3 min-h-[72px]">
+                <i class="fa-solid fa-check text-2xl"></i>
+                <span>다 썼어요!</span>
+            </button>
+
+        </div>
+
+        <!-- ======================================================================== -->
+        <!-- SCREEN: STAGE 3 SUCCESS                                                 -->
+        <!-- ======================================================================== -->
+        <div id="screenStage3_Success" class="hidden space-y-6">
+
+            <div class="bg-emerald-50 border-4 border-emerald-300 rounded-3xl p-8 sm:p-12 shadow-2xl text-center space-y-6">
+                <div class="w-36 h-36 bg-emerald-200 text-emerald-800 rounded-full flex items-center justify-center text-8xl mx-auto border-4 border-emerald-400 shadow-md animate-pulse-gentle">
+                    ✏️🎉
+                </div>
+
+                <div class="space-y-3">
+                    <span class="bg-emerald-500 text-white font-black text-xl px-6 py-2 rounded-full inline-block">
+                        🎉 3단계 완성! (한글 공부 성공)
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-emerald-950 font-gaegu tracking-wide">
+                        "글씨를 정말 예쁘게 썼어요!"
+                    </h2>
+                    <p class="text-xl sm:text-2xl font-bold text-slate-700 max-w-2xl mx-auto leading-relaxed">
+                        <span class="displayStudentName text-emerald-900 font-black">김민수</span> 학생이 <span id="completedWordsList" class="text-amber-700 font-black"></span> 글자를 모두 따라 썼어요!
+                    </p>
+                </div>
+
+                <div class="bg-white border-3 border-emerald-300 rounded-2xl p-5 max-w-lg mx-auto flex items-center gap-4 text-left shadow-sm">
+                    <div class="text-5xl flex-shrink-0">👩‍🏫</div>
+                    <div>
+                        <div class="font-black text-emerald-900 text-lg">선생님</div>
+                        <div class="text-slate-800 font-bold text-lg sm:text-xl">
+                            "열심히 공부했구나, <span class="displayStudentName text-amber-700 font-black">김민수</span>야! 딩동댕~ 이제 쉬는 시간이에요!"
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button onclick="goToStage4()" class="w-full sm:w-auto bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-950 font-black text-2xl px-10 py-5 rounded-2xl border-b-6 border-amber-600 shadow-xl flex items-center justify-center gap-3 animate-pulse-gentle min-h-[68px]">
+                        <span>🔔 4단계: 쉬는 시간으로 가기</span>
+                        <i class="fa-solid fa-arrow-right text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- SCREEN 4-1: STAGE 4 (PART 1) - SHARING TOYS              -->
+        <!-- ======================================================== -->
+        <div id="screenStage4_Recess" class="hidden space-y-6">
+
+            <!-- Stage Progress Indicator Bar -->
+            <div class="bg-amber-100 border-3 border-amber-300 rounded-2xl p-4 flex items-center justify-between shadow-xs">
+                <div class="flex items-center gap-3">
+                    <span class="bg-amber-500 text-white font-black text-xl px-4 py-1.5 rounded-xl">4단계 (1/2)</span>
+                    <span class="text-xl sm:text-2xl font-black text-amber-950 font-gaegu">🔔 4단계: 쉬는 시간 (장난감 함께 놀기)</span>
+                </div>
+                <div class="text-lg font-black text-amber-800 hidden sm:block">
+                    학생: <span class="displayStudentName text-amber-950 underline decoration-amber-400">김민수</span>
+                </div>
+            </div>
+
+            <!-- Question Banner -->
+            <div class="bg-white border-4 border-amber-300 rounded-3xl p-6 sm:p-8 shadow-lg text-center space-y-3">
+                <div class="inline-flex items-center gap-2 bg-amber-200 text-amber-950 text-lg font-black px-5 py-1.5 rounded-full">
+                    <span>💡 어떻게 할까요?</span>
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-800 leading-snug">
+                    "장난감 자동차를 가지고 놀고 있는데 친구가 다가왔어요."
+                </h2>
+                <p class="text-xl sm:text-2xl text-amber-900 font-extrabold">
+                    친구가 "나도 같이 놀아도 돼?" 하고 물어봐요. 어떻게 할까요?
+                </p>
+            </div>
+
+            <!-- Toy Play Illustration -->
+            <div class="bg-gradient-to-b from-amber-100 to-amber-200 border-4 border-amber-400 rounded-3xl p-6 shadow-inner flex flex-col items-center justify-center min-h-[200px] text-center relative overflow-hidden">
+                <div class="flex items-end justify-center gap-6 my-2">
+                    <div class="text-7xl sm:text-8xl animate-toy-bounce">🧸</div>
+                    <div class="text-6xl sm:text-7xl animate-toy-slide">🚗</div>
+                    <div class="text-7xl sm:text-8xl animate-friend-play">🧒</div>
+                </div>
+                <p class="text-lg sm:text-xl font-black text-amber-950 bg-white/90 px-6 py-2 rounded-2xl border-2 border-amber-300 shadow-xs mt-2">
+                    친구: "우와, 멋진 자동차다! 나도 같이 놀아도 돼?"
+                </p>
+            </div>
+
+            <!-- Touch Choice Buttons (2 Options) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+                <button onclick="chooseToyShare(true)" class="bg-emerald-400 hover:bg-emerald-500 active:bg-emerald-600 text-emerald-950 border-b-8 border-emerald-600 rounded-3xl p-6 sm:p-8 shadow-xl transition transform active:scale-95 flex flex-col items-center gap-3 text-center min-h-[160px] justify-center">
+                    <span class="text-5xl">🤝😊</span>
+                    <span class="text-2xl sm:text-3xl font-black">"그래, 같이 놀자!"</span>
+                    <span class="text-base sm:text-lg font-bold text-emerald-900 bg-emerald-100 px-4 py-1 rounded-full">장난감을 사이좋게 나눠요</span>
+                </button>
+
+                <button onclick="chooseToyShare(false)" class="bg-rose-100 hover:bg-rose-200 active:bg-rose-300 text-rose-950 border-4 border-rose-300 border-b-8 border-rose-400 rounded-3xl p-6 sm:p-8 shadow-md transition transform active:scale-95 flex flex-col items-center gap-3 text-center min-h-[160px] justify-center">
+                    <span class="text-5xl">🙅</span>
+                    <span class="text-2xl sm:text-3xl font-black">"싫어, 내 거야!"</span>
+                    <span class="text-base sm:text-lg font-bold text-rose-800 bg-white px-4 py-1 rounded-full">혼자서만 가지고 놀래요</span>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- SCREEN 4-2: STAGE 4 (PART 2) - HELPING A FALLEN FRIEND   -->
+        <!-- ======================================================== -->
+        <div id="screenStage4_Fall" class="hidden space-y-6">
+
+            <!-- Stage Progress Indicator Bar -->
+            <div class="bg-amber-100 border-3 border-amber-300 rounded-2xl p-4 flex items-center justify-between shadow-xs">
+                <div class="flex items-center gap-3">
+                    <span class="bg-amber-500 text-white font-black text-xl px-4 py-1.5 rounded-xl">4단계 (2/2)</span>
+                    <span class="text-xl sm:text-2xl font-black text-amber-950 font-gaegu">🔔 4단계: 쉬는 시간 (넘어진 친구 돕기)</span>
+                </div>
+                <div class="text-lg font-black text-amber-800 hidden sm:block">
+                    학생: <span class="displayStudentName text-amber-950 underline decoration-amber-400">김민수</span>
+                </div>
+            </div>
+
+            <!-- Question Banner -->
+            <div class="bg-white border-4 border-amber-300 rounded-3xl p-6 sm:p-8 shadow-lg text-center space-y-3">
+                <div class="inline-flex items-center gap-2 bg-amber-200 text-amber-950 text-lg font-black px-5 py-1.5 rounded-full">
+                    <span>💡 어떻게 할까요?</span>
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-800 leading-snug">
+                    "앗! 함께 놀던 친구가 쿵! 하고 넘어졌어요."
+                </h2>
+                <p class="text-xl sm:text-2xl text-amber-900 font-extrabold">
+                    친구가 무릎을 잡고 아파해요. 어떻게 할까요?
+                </p>
+            </div>
+
+            <!-- Fallen Friend Illustration -->
+            <div class="bg-gradient-to-b from-amber-100 to-amber-200 border-4 border-amber-400 rounded-3xl p-6 shadow-inner flex flex-col items-center justify-center min-h-[200px] text-center relative">
+                <div class="text-8xl sm:text-9xl animate-pulse-gentle my-2">
+                    🤕
+                </div>
+                <p class="text-lg sm:text-xl font-black text-amber-950 bg-white/90 px-6 py-2 rounded-2xl border-2 border-amber-300 shadow-xs">
+                    친구: "아야야... 무릎이 아파..."
+                </p>
+            </div>
+
+            <!-- Touch Choice Buttons (2 Options) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+                <button onclick="chooseFallenFriend(true)" class="bg-emerald-400 hover:bg-emerald-500 active:bg-emerald-600 text-emerald-950 border-b-8 border-emerald-600 rounded-3xl p-6 sm:p-8 shadow-xl transition transform active:scale-95 flex flex-col items-center gap-3 text-center min-h-[160px] justify-center">
+                    <span class="text-5xl">🫶</span>
+                    <span class="text-2xl sm:text-3xl font-black">"괜찮아?" 하고 도와줘요</span>
+                    <span class="text-base sm:text-lg font-bold text-emerald-900 bg-emerald-100 px-4 py-1 rounded-full">일으켜 주고 선생님께 알려요</span>
+                </button>
+
+                <button onclick="chooseFallenFriend(false)" class="bg-rose-100 hover:bg-rose-200 active:bg-rose-300 text-rose-950 border-4 border-rose-300 border-b-8 border-rose-400 rounded-3xl p-6 sm:p-8 shadow-md transition transform active:scale-95 flex flex-col items-center gap-3 text-center min-h-[160px] justify-center">
+                    <span class="text-5xl">🏃💨</span>
+                    <span class="text-2xl sm:text-3xl font-black">못 본 척 혼자 놀아요</span>
+                    <span class="text-base sm:text-lg font-bold text-rose-800 bg-white px-4 py-1 rounded-full">친구를 두고 다른 데로 가요</span>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- SCREEN: GAME OVER (NOT SHARING TOYS)                     -->
+        <!-- ======================================================== -->
+        <div id="screenGameOver_Recess" class="hidden space-y-6">
+            <div class="bg-rose-50 border-4 border-rose-300 rounded-3xl p-8 sm:p-12 shadow-2xl text-center space-y-6">
+                <div class="w-32 h-32 bg-rose-200 text-rose-700 rounded-full flex items-center justify-center text-7xl mx-auto border-4 border-rose-400 shadow-inner animate-bounce">
+                    😞
+                </div>
+
+                <div class="space-y-3">
+                    <span class="bg-rose-500 text-white font-black text-lg px-5 py-2 rounded-full inline-block">
+                        친구가 속상해요!
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-rose-950 font-gaegu tracking-wide">
+                        "같이 놀면 더 재미있어요!"
+                    </h2>
+                    <p class="text-xl sm:text-2xl font-bold text-slate-700 max-w-xl mx-auto leading-relaxed">
+                        혼자만 장난감을 가지고 놀아서 친구가 시무룩해졌어요.<br>장난감을 사이좋게 나누면 친구와 더 즐겁게 놀 수 있어요.
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <button onclick="goToScreen('screenStage4_Recess')" class="w-full sm:w-auto bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-950 font-black text-2xl px-8 py-5 rounded-2xl border-b-6 border-amber-600 shadow-lg flex items-center justify-center gap-3 min-h-[68px]">
+                        <i class="fa-solid fa-rotate-left text-2xl"></i>
+                        <span>다시 선택하기</span>
+                    </button>
+
+                    <button onclick="goToScreen('screenLogin')" class="w-full sm:w-auto bg-slate-200 hover:bg-slate-300 text-slate-800 font-extrabold text-xl px-6 py-5 rounded-2xl border-2 border-slate-300 flex items-center justify-center gap-2 min-h-[68px]">
+                        <i class="fa-solid fa-house text-xl"></i>
+                        <span>처음으로 돌아가기</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- SCREEN: GAME OVER (IGNORING FALLEN FRIEND)               -->
+        <!-- ======================================================== -->
+        <div id="screenGameOver_Recess_Fall" class="hidden space-y-6">
+            <div class="bg-rose-50 border-4 border-rose-300 rounded-3xl p-8 sm:p-12 shadow-2xl text-center space-y-6">
+                <div class="w-32 h-32 bg-rose-200 text-rose-700 rounded-full flex items-center justify-center text-7xl mx-auto border-4 border-rose-400 shadow-inner animate-bounce">
+                    😢
+                </div>
+
+                <div class="space-y-3">
+                    <span class="bg-rose-500 text-white font-black text-lg px-5 py-2 rounded-full inline-block">
+                        친구가 혼자 아파해요!
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-rose-950 font-gaegu tracking-wide">
+                        "친구를 도와주세요!"
+                    </h2>
+                    <p class="text-xl sm:text-2xl font-bold text-slate-700 max-w-xl mx-auto leading-relaxed">
+                        넘어진 친구를 그냥 두고 가서 친구가 혼자 울고 있어요.<br>"괜찮아?" 하고 물어보고, 다쳤으면 선생님께 꼭 알려요.
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <button onclick="goToScreen('screenStage4_Fall')" class="w-full sm:w-auto bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-950 font-black text-2xl px-8 py-5 rounded-2xl border-b-6 border-amber-600 shadow-lg flex items-center justify-center gap-3 min-h-[68px]">
+                        <i class="fa-solid fa-rotate-left text-2xl"></i>
+                        <span>다시 선택하기</span>
+                    </button>
+
+                    <button onclick="goToScreen('screenLogin')" class="w-full sm:w-auto bg-slate-200 hover:bg-slate-300 text-slate-800 font-extrabold text-xl px-6 py-5 rounded-2xl border-2 border-slate-300 flex items-center justify-center gap-2 min-h-[68px]">
+                        <i class="fa-solid fa-house text-xl"></i>
+                        <span>처음으로 돌아가기</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================================================================== -->
+        <!-- SCREEN: STAGE 4 SUCCESS                                                 -->
+        <!-- ======================================================================== -->
+        <div id="screenStage4_Success" class="hidden space-y-6">
+
+            <div class="bg-emerald-50 border-4 border-emerald-300 rounded-3xl p-8 sm:p-12 shadow-2xl text-center space-y-6">
+                <div class="w-36 h-36 bg-emerald-200 text-emerald-800 rounded-full flex items-center justify-center text-8xl mx-auto border-4 border-emerald-400 shadow-md animate-pulse-gentle">
+                    🤝🎉
+                </div>
+
+                <div class="space-y-3">
+                    <span class="bg-emerald-500 text-white font-black text-xl px-6 py-2 rounded-full inline-block">
+                        🎉 4단계 완성! (쉬는 시간 성공)
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-emerald-950 font-gaegu tracking-wide">
+                        "친구를 아끼는 마음이 최고예요!"
+                    </h2>
+                    <p class="text-xl sm:text-2xl font-bold text-slate-700 max-w-2xl mx-auto leading-relaxed">
+                        <span class="displayStudentName text-emerald-900 font-black">김민수</span> 학생이 장난감을 사이좋게 나누고, 넘어진 친구도 따뜻하게 도와줬어요!
+                    </p>
+                </div>
+
+                <div class="bg-white border-3 border-emerald-300 rounded-2xl p-5 max-w-lg mx-auto flex items-center gap-4 text-left shadow-sm">
+                    <div class="text-5xl flex-shrink-0">🧒</div>
+                    <div>
+                        <div class="font-black text-emerald-900 text-lg">친구</div>
+                        <div class="text-slate-800 font-bold text-lg sm:text-xl">
+                            "고마워, <span class="displayStudentName text-amber-700 font-black">김민수</span>! 너랑 노니까 정말 재미있어!"
+                        </div>
+                    </div>
+                </div>
+
                 <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
                     <button onclick="goToScreen('screenStage5_Warmup')" class="w-full sm:w-auto bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-950 font-black text-2xl px-10 py-5 rounded-2xl border-b-6 border-amber-600 shadow-xl flex items-center justify-center gap-3 animate-pulse-gentle min-h-[68px]">
                         <span>⚽ 5단계: 체육 시간으로 가기</span>
@@ -1137,7 +1448,7 @@
 
                 <div class="space-y-3">
                     <span class="bg-emerald-500 text-white font-black text-xl px-6 py-2 rounded-full inline-block">
-                        🎉 6단계 완성! (점심 시간 성공)
+                        🎉 6단계 완성! 오늘의 학교생활 모두 성공!
                     </span>
                     <h2 class="text-3xl sm:text-5xl font-black text-emerald-950 font-gaegu tracking-wide">
                         "줄도 잘 서고 반찬도 골고루 먹었어요!"
@@ -1158,11 +1469,11 @@
                     </div>
                 </div>
 
-                <!-- Next Stage Button -->
+                <!-- Finish Button -->
                 <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <button onclick="alertNextStage('7단계 미술 시간')" class="w-full sm:w-auto bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-950 font-black text-2xl px-10 py-5 rounded-2xl border-b-6 border-amber-600 shadow-xl flex items-center justify-center gap-3 animate-pulse-gentle min-h-[68px]">
-                        <span>🎨 7단계: 미술 시간으로 가기</span>
-                        <i class="fa-solid fa-arrow-right text-2xl"></i>
+                    <button onclick="goToScreen('screenLogin')" class="w-full sm:w-auto bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-950 font-black text-2xl px-10 py-5 rounded-2xl border-b-6 border-amber-600 shadow-xl flex items-center justify-center gap-3 animate-pulse-gentle min-h-[68px]">
+                        <i class="fa-solid fa-house text-2xl"></i>
+                        <span>처음으로 돌아가기</span>
                     </button>
                 </div>
             </div>
@@ -1171,13 +1482,13 @@
 
     </main>
 
-    <!-- Simple Notice Modal for Next Stage -->
+    <!-- Simple Notice Modal -->
     <div id="noticeModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white border-4 border-amber-400 p-6 sm:p-8 rounded-3xl max-w-md w-full shadow-2xl text-center space-y-4">
             <div class="text-6xl" id="modalEmoji">🔔</div>
-            <h3 class="text-2xl sm:text-3xl font-black text-amber-950 font-gaegu" id="modalTitle">다음 단계 준비 중!</h3>
+            <h3 class="text-2xl sm:text-3xl font-black text-amber-950 font-gaegu" id="modalTitle">알림</h3>
             <p class="text-lg font-bold text-slate-600" id="modalDesc">
-                참 잘했어요! 다음 화면으로 연결하여 진행할 수 있습니다.
+
             </p>
             <button onclick="closeNoticeModal()" class="w-full bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-950 font-black text-xl py-4 rounded-xl border-b-4 border-amber-600 shadow-md">
                 확인
@@ -1347,8 +1658,14 @@
             previousScreen = currentScreen;
             currentScreen = screenId;
 
-            const targetEl = document.getElementById(screenId);
-            if (targetEl) targetEl.classList.remove('hidden');
+            let targetEl = document.getElementById(screenId);
+            if (!targetEl) {
+                // 존재하지 않는 화면이면 빈 화면 대신 처음 화면으로 이동
+                screenId = 'screenLogin';
+                currentScreen = screenId;
+                targetEl = document.getElementById(screenId);
+            }
+            targetEl.classList.remove('hidden');
 
             const globalBackBtn = document.getElementById('globalBackBtn');
             if (globalBackBtn) {
@@ -1391,7 +1708,7 @@
             } else if (currentScreen === 'screenStage3_Tracing') {
                 goToScreen('screenStage2_Success');
             } else if (currentScreen === 'screenStage3_Success') {
-                goToScreen('screenStage3_Tracing');
+                goToStage3();
             } else if (currentScreen === 'screenStage4_Recess') {
                 goToScreen('screenStage3_Success');
             } else if (currentScreen === 'screenStage4_Fall') {
@@ -1549,15 +1866,6 @@
                 playSadTone();
                 goToScreen('screenGameOver_LunchEat');
             }
-        }
-
-        function alertNextStage(stageTitle = "7단계 미술 시간") {
-            playChime("G5");
-            const modalTitle = document.getElementById('modalTitle');
-            const modalDesc = document.getElementById('modalDesc');
-            if (modalTitle) modalTitle.innerText = `${stageTitle} 준비 완료!`;
-            if (modalDesc) modalDesc.innerText = `참 잘했어요! 다음 화면으로 연결하여 [${stageTitle}] 과정을 계속 이어갈 수 있습니다.`;
-            document.getElementById('noticeModal').classList.remove('hidden');
         }
 
         function closeNoticeModal() {
